@@ -11,7 +11,7 @@ CREATE TABLE department(
 
 CREATE TABLE employeerole(
     id INTEGER (11) AUTO_INCREMENT NOT NULL,
-    role VARCHAR(30),
+    employeerole VARCHAR(30),
     salary DECIMAL(12,4),
     department_id INT NOT NULL,
     PRIMARY Key (id),
@@ -25,10 +25,10 @@ CREATE TABLE employee(
     role_id INT NOT NULL,
     manager_id INT NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (role_id) REFERENCES role(id),
-    FOREIGN KEY (manager_id) REFERENCES role(id)
+    FOREIGN KEY (role_id) REFERENCES employeerole(id),
+    FOREIGN KEY (manager_id) REFERENCES employeerole(id)
 );
 
-SELECT * FROM department
-SELECT * FROM role;
+SELECT * FROM department;
+SELECT * FROM employeerole;
 SELECT * FROM employee;
