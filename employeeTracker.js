@@ -37,12 +37,10 @@ function mainMenu() {
                 "View Departments",
                 "View Employees",
                 "View Roles",
-                "View Employee Manager",
                 "Add Department",
                 "Add Role",
                 "Add Employee",
                 "Update Employee",
-                "Update Employee Manager",
                 "Delete Department",
                 "Delete Role",
                 "Delete Employee",
@@ -60,9 +58,6 @@ function mainMenu() {
                 case "View Roles":
                     viewRole();
                     break;
-                case "View Employee Manager":
-                    viewManager();
-                    break;
                 case "Add Department":
                     addDepartment();
                     break;
@@ -71,11 +66,8 @@ function mainMenu() {
                     break;
                 case "Add Employee":
                     addEmployee();
-                case "Update Employee":
+                case "Update Employees Role":
                     updateEmployee();
-                    break;
-                case "Update Employee Manager":
-                    updateManager();
                     break;
                 case "Delete Department":
                     deleteDepartment();
@@ -105,12 +97,41 @@ function viewEmployee() {
     })
 }
 
+function viewRole() {
+
+    const query = "SELECT * FROM employeerole"
+    connection.query(query, function (err, res) {
+        if (err) throw err;
+        console.table(res)
+        mainMenu()
+    })
+}
+
+function viewDepartment() {
+
+    const query = "SELECT * FROM department"
+    connection.query(query, function (err, res) {
+        if (err) throw err;
+        console.table(res)
+        mainMenu()
+    })
+}
 
 
+function addRole() {
+    inquirer
+    .prompt({
+        type: "rawlist",
+        name: "role",
+        message: "What Role Would you like to add?",
+        choices: [
+            "Intern",
+            "Legal Team Lead",
 
+        ]
+    })
 
-
-
+}
 
 
 
