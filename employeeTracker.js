@@ -243,7 +243,9 @@ function updateEmployee() {
            for (var i = 0; i < res.length; i++) {
                roles.push({name:res[i].employeerole, value:res[i].id})
            }
+          
         });
+    
         inquirer.prompt([
             {
                 type: "list",
@@ -252,16 +254,16 @@ function updateEmployee() {
                 choices: employees
             },
             {
-                type: " list",
+                type: "list",
                 name: "update role",
                 message: "What role would you like to change this employee to?",
-                choice: roles
+                choices: roles
             }
         ]).then(function(res){
             var query = "UPDATE employee SET role_id = ? Where id = ?";
             connection.query(query,[res["update role"],res["which employee"]], function(err, res) {
                 if (err) throw err;
-                console.log("employee rolle changed");
+                console.log("employee roll changed");
                 mainMenu();
             })
         })
