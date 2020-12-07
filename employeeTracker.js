@@ -41,9 +41,7 @@ function mainMenu() {
                 "Add Role",
                 "Add Employee",
                 "Update Employees Role",
-                "Delete Department",
-                "Delete Role",
-                "Delete Employee",
+            
                 "Exit"
             ]
         })
